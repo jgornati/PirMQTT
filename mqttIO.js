@@ -34,7 +34,7 @@ servermqtt.on('published', function(packet, client) {
     TopicValue: packet.payload
   });
   
-    var chatId = "@jgornati";
+    var chatId = "jgornati";
     bot.sendMessage(chatId, "Hola Ameo");
   
   
