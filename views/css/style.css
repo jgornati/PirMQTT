@@ -1,0 +1,141 @@
+html, body {
+	height:100%;
+}
+body {
+  width: 100%;
+  background-image: url(../img/background.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+#temp1 {
+  width: 320px;
+  height: 250px;
+}
+#hum1 {
+  width: 320px;
+  height: 250px;
+}
+#chartTemp{
+	width:100%;
+	height:300px;
+}
+#chartHum{
+	width:100%;
+	height:300px;
+}
+.cf-td-time {
+  font-size: 40px;
+
+}
+.fuenteRara{
+	font-family: 'Fontdiner Swanky', cursive;
+}
+.cf-td-dd p {
+  display: inline-block;
+}
+.addPadding {
+  padding-top: 50px;
+}
+.addMargin {
+  margin-top: 40px;
+}
+.paddin1{
+	padding-top: 40px;
+}
+.logos img{
+	display: inline-block;
+	margin:30px;
+}
+#home{
+  background-color: rgba(255, 255, 255, 0);
+}
+#about{
+  width: 100%;
+  background-image: url(../img/background.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+/*Estilo del panel*/
+.panel{
+  top:0%;
+  margin-bottom: 0%;
+	/*width: 100%;*/
+	min-height: 100%;
+	position: absolute;
+	margin-left: -102%;
+	z-index: 2;
+	-webkit-transition: all .6s ease-in-out;
+	-moz-transition: all .6s ease-in-out;
+	-o-transition: all .6s ease-in-out;
+	-ms-transition: all .6s ease-in-out;
+  transition: all .6s ease-in-out;
+}
+.panel:target{
+	margin-left: 0%;
+}
+.content{
+	right: 0%;
+	left: 0%;
+	top: 0%;
+	position: absolute;
+}
+
+/*Media querys*/
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .addPadding {
+    padding-top: 0px;
+  }
+  .addMargin {
+    margin-top: 0px;
+  }
+
+}
+
+@media only screen and (max-width: 767px) {
+  .addPadding {
+    padding-top: 0px
+  }
+  .addMargin {
+    margin-top: 0px;
+  }
+}
+
+@media (min-width: 1900px) {
+  body{
+    padding-top: 100px;
+  }
+	#temp1 {
+	  width: 32em;
+	  height: 25em;
+		margin-left: -250px;
+	}
+	#hum1 {
+	  width: 32em;
+	  height: 25em;
+		margin-left: -250px;
+	}
+
+	#chartTemp{
+		width:80em;
+		height:400px;
+		margin-left:-150px;
+	}
+	#chartHum{
+		width:80em;
+		height:400px;
+		margin-left:-150px;
+	}
+	.addMarginLg {
+	  margin-top: 100px;
+	}
+
+	.cf-td{
+		margin-left:-370px;
+	}
+
+}
+@media only screen and (min-width: 10px) and (max-width: 350px) {}

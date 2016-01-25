@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1 SockeIoMqtt
+  p Welcome tosssss #{title}
+  script(src="/socket.io/socket.io.js")
+  script.
+    var socket = io.connect('http://localhost:3000');
+    socket.on('topic', function (data) {
+        console.log(data);
+    });
