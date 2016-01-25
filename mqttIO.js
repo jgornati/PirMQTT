@@ -33,10 +33,10 @@ servermqtt.on('published', function(packet, client) {
     TopicTema: packet.topic,
     TopicValue: packet.payload
   });
-  bot.on('text', function(msg){
+  
     var chatId = "@jgornati";
     bot.sendMessage(chatId, "Hola Ameo");
-  });
+  
   
   t.save(function(err, doc){
     if(!err){
