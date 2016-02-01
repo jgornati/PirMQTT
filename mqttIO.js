@@ -19,9 +19,6 @@ servermqtt.on('clientConnected', function(client) {
   console.log('client connected', client.id);
 });
 
-var TelegramBot = require('node-telegram-bot-api');
-var token = '152404872:AAEfkkiE7opFzz-HlPL7HGHk4cRijP6uI0g';
-var bot = new TelegramBot(token, {polling: true});
 // fired when a message is received
 servermqtt.on('published', function(packet, client) {
   console.log('Published ' + packet.payload);
@@ -34,8 +31,6 @@ servermqtt.on('published', function(packet, client) {
     TopicValue: packet.payload
   });
   
-    var chatId = "@jgornati";
-    bot.sendMessage(chatId, "Hola Ameo");
   
   
   t.save(function(err, doc){
