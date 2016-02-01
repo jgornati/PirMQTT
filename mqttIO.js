@@ -1,6 +1,15 @@
 var mosca = require('mosca');
 var Topics = require('./models/topics.js');
 var io = module.parent.exports.io;
+var globalChatID = false;
+var AlarmArmed = false;
+//!!!TELEGRAM
+var TelegramBot = require('node-telegram-bot-api');
+ 
+var token = '152404872:AAEfkkiE7opFzz-HlPL7HGHk4cRijP6uI0g';
+// Setup polling way
+var bot = new TelegramBot(token, {polling: true});
+
 
 var moscaSettings = {
   port: 1883
@@ -31,10 +40,17 @@ servermqtt.on('published', function(packet, client) {
     TopicValue: packet.payload
   });
   
-  
   t.save(function(err, doc){
     if(!err){
       console.log("guarde el paquete");
+      console.log("el globalChatID:" + globalChatID);
+      console.log(AlarmArmed);
+      if(globalChatID && AlarmArmed){
+        console.log("SUENA LA ALARMA!!!!!!!!!!!!!!!!!!!!!");
+        bot.sendMessage(globalChatID, "suena la alarma papa!!!!");
+        bot.sendMessage(globalChatID, "suena la alarma papa!!!!");
+        bot.sendMessage(globalChatID, "suena la alarma papa!!!!");
+      }
       console.log(err, doc);
     }else{
       console.log("error al guardar papquete");
@@ -47,6 +63,27 @@ servermqtt.on('ready', function setup() {
   servermqtt.authenticate = authenticate;
   console.log('Mosca server is up and running')
 });
+
+
+
+bot.on('text', function (msg) {
+  var chatId = msg.chat.id;
+  globalChatID = msg.chat.id; //variable global declarada dentro de la funcion cuando recibe el mensaje
+  if(msg.text == "activar"){
+    bot.sendMessage(chatId,"Alarma Activa");
+    console.log(msg.chat.id)
+    AlarmArmed = true;
+  }else if(msg.text == "desactivar"){
+    bot.sendMessage(chatId, "Alarma Desactivada");
+    console.log(msg.chat.id)
+    AlarmArmed = false;
+  }else{
+    bot.sendMessage(chatId, "Pedime algo coherente!")
+    console.log(msg.chat.id)
+  };
+  
+});
+
 
 
 module.exports = servermqtt;
