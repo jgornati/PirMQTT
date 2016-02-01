@@ -32,7 +32,6 @@ servermqtt.on('published', function(packet, client) {
   });
   
   
-  
   t.save(function(err, doc){
     if(!err){
       console.log("guarde el paquete");
