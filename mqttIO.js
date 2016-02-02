@@ -75,11 +75,11 @@ servermqtt.on('ready', function setup() {
 bot.on('text', function (msg) {
   var chatId = msg.chat.id;
   globalChatID = msg.chat.id; //variable global declarada dentro de la funcion cuando recibe el mensaje
-  if(msg.text == "activar"){
+  if(msg.text == "activar" || msg.text = "@NodelBot activar"){
     bot.sendMessage(chatId,"Alarma Activa");
     console.log(msg.chat.id)
     AlarmArmed = true;
-  }else if(msg.text == "desactivar"){
+  }else if(msg.text == "desactivar" || msg.text = "@NodelBot desactivar"){
     bot.sendMessage(chatId, "Alarma Desactivada");
     console.log(msg.chat.id)
     AlarmArmed = false;
