@@ -63,7 +63,7 @@ window.onload = function() {
         },
 
         title: {
-          text: 'TEMPERATURA 1'
+          text: 'BATERIA'
         },
 
         credits: {
@@ -71,7 +71,7 @@ window.onload = function() {
         },
 
         series: [{
-          name: 'TEMPERATURA',
+          name: 'BATERIA',
           data: dataTemp,
           turboThreshold: 0,
           color: '#ff0000',
