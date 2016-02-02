@@ -1,12 +1,12 @@
 window.onload = function() {
-  var tem1, temp2;
-  var temp1 = new JustGage({
-    id: "temp1",
+  var bat, temp2;
+  var bat = new JustGage({
+    id: "bat",
     value: " ",
     min: 0,
-    max: 50,
-    title: "TEMPERATURA",
-    label: "ºC"
+    max: 1024,
+    title: "Bateria",
+    label: "V"
   });
   var hum1 = new JustGage({
     id: "hum1",

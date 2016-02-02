@@ -1,3 +1,6 @@
+/* NO FUNCIONA PORQUE SE CIERRA LA CONEXION CON EL BROCKER MQTT, ME ACORDE DE PEDO PORQUE CUANDO ESTABA HACIENDO
+EL MQTTTEMP SI EXTENDIA EL TIEMPO DE PUSHEO DE LOS DATOS SE DESCONECTABA, LO MISMO PASA CON ESTE, AL ESTAR SIN RECIBIR MOVIMIENTO
+SE DESCONECTA DEL BROKER MQTT!!!!! FUCKKKK HAY QUE ENCONTRAR UNA SOLUCION!!!*/
 var mosca = require('mosca');
 var Topics = require('./models/topics.js');
 var io = module.parent.exports.io;
@@ -45,6 +48,9 @@ servermqtt.on('published', function(packet, client) {
       console.log("guarde el paquete");
       console.log("el globalChatID:" + globalChatID);
       console.log(AlarmArmed);
+      if(packet.topic == 'bat'){
+        io.sockets.emit('bat', {tema: String(packet.topic), valor: String(packet.payload)});
+      }
       if(globalChatID && AlarmArmed){
         console.log("SUENA LA ALARMA!!!!!!!!!!!!!!!!!!!!!");
         bot.sendMessage(globalChatID, "suena la alarma papa!!!!");
