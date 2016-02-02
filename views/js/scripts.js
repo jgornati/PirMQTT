@@ -1,6 +1,6 @@
 window.onload = function() {
   var temp1, temp2;
-  var bat = new JustGage({
+  var temp1 = new JustGage({
     id: "temp1",
     value: " ",
     min: 0,
