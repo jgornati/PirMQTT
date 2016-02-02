@@ -1,7 +1,7 @@
 window.onload = function() {
-  var bat, temp2;
+  var temp1, temp2;
   var bat = new JustGage({
-    id: "bat",
+    id: "temp1",
     value: " ",
     min: 0,
     max: 1024,
@@ -32,7 +32,7 @@ window.onload = function() {
   $(function() {
     var dataTemp = new Array();
 
-    $.getJSON('http://192.168.0.10:3000/temp1', function(json) {
+    $.getJSON('http://gornatilabs.com:3000/temp1', function(json) {
       $.map(json, function(obj, i) {
         dataTemp.push({
           x: new Date(obj.TopicTime),
@@ -52,7 +52,7 @@ window.onload = function() {
 
               // Actualizo el grafico y el reloj de TEMPERATURA
               var series = this.series[0];
-              socket.on('t1', function(DataChartTemp1) {
+              socket.on('bat', function(DataChartTemp1) {
                 temp1.refresh(parseFloat(DataChartTemp1.valor));
                 var x = (new Date()).getTime(),
                   y = parseFloat(DataChartTemp1.valor);
@@ -86,7 +86,7 @@ window.onload = function() {
   $(function() {
     var dataHum = new Array();
 
-    $.getJSON('http://192.168.0.10:3000/hum1', function(json) {
+    $.getJSON('http://gornatilabs.com:3000/hum1', function(json) {
       $.map(json, function(obj, i) {
         dataHum.push({
           x: new Date(obj.TopicTime),

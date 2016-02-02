@@ -51,7 +51,7 @@ servermqtt.on('published', function(packet, client) {
       if(packet.topic == 'bat'){
         io.sockets.emit('bat', {tema: String(packet.topic), valor: String(packet.payload)});
       }
-      if(globalChatID && AlarmArmed){
+      if(packet.topic == 'sen1' && globalChatID && AlarmArmed){
         console.log("SUENA LA ALARMA!!!!!!!!!!!!!!!!!!!!!");
         bot.sendMessage(globalChatID, "suena la alarma papa!!!!");
         bot.sendMessage(globalChatID, "suena la alarma papa!!!!");
